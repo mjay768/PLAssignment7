@@ -33,7 +33,7 @@ int f1()
     if(n<10)
     {
 
-        printf("\nCall #%d at %p",n+1,(void *)ch);
+        printf("\nCall #%d at 0000000000%X",n+1,(void *)ch);
         printf("\nAR Size       #%d is %ld",n+1,size);
         f1(n++);
     }
@@ -59,7 +59,8 @@ int f2()
 
 int f3()
 {
-    char *ch = malloc(sizeof(char) * MAX_SIZE);
+    unsigned char *ch = malloc(sizeof(char) * MAX_SIZE);
+    char c = sizeof(ch);
     long int item;
     static int n;
     static long int addr;
@@ -70,7 +71,7 @@ int f3()
     if(n<10)
     {
 
-        printf("\nCall #%d at %p",n+1,ch);
+        printf("\nCall #%d at 0000000000%X",n+1,ch);
         printf("\nAR Size       #%d is %ld",n+1,size);
         f1(n++);
     }
